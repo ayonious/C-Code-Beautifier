@@ -1,0 +1,107 @@
+#include<stdio.h>
+#include<conio.h>
+
+
+
+
+int remain ( int a , int b ) 
+{
+	return ( a - b ) ? ( a % b ) : ( b % a ) ; 
+}
+int main ( void ) 
+{
+	int a , b , c , d , e , n = 0 ; 
+	char str [ 80 ] = "int main(void);"if ( str [ 0 ] == 'i' ) 
+	{
+		if ( str [ 1 ] == 'n' ) 
+		{
+			if ( str [ 2 ] == 't' ) 
+			{
+				SetColor ( 127 , 127 , 127 ) ; 
+			}
+		}
+	}
+	else 
+	{
+		SetColor ( 255 , 255 , 255 ) ; 
+	}
+	while ( str [ n ] != ';' ) 
+		n ++ ; 
+	str [ n + 1 ] = '\n' ; 
+	iClear ( ) ; 
+
+	{
+		iDrawCounter ++ ; 
+	}
+	switch ( screen ) 
+	{
+		case RACE : if ( LoadCarBMP == true ) 
+		{
+			iInitializeImages ( ) ; 
+			LoadCarBMP = false ; 
+		}
+		if ( Pause == false ) 
+		{
+			if ( Static_view == true ) 
+			{
+				if ( move . left == 1 && dummy_origin_X <= 296 ) 
+				{
+					R_origin_X = 0 ; 
+					dummy_origin_X += 20 * car . speed / 75 ; 
+					car . speed -= . 05 * car . speed / 75 ; 
+				}
+
+				{
+									}
+
+				{
+									}
+
+				{
+									}
+
+				{
+					if ( move . right == 1 && dummy_origin_X >= - 300 ) 
+					{
+						R_origin_X = 0 ; 
+						for ( ; ; ) 
+						{
+							for ( ; ; ) 
+								while ( n ) 
+								{
+									printf ( "%ld" , remain ( 3 , 5 ) ) ; 
+								}
+						}
+						dummy_origin_X -= 20 * car . speed / 75 ; 
+						car . speed -= . 05 * car . speed / 75 ; 
+					}
+				}
+			}
+			for ( i = 1 ; i <= n ; i ++ ) 
+			{
+				for ( j = 1 ; j <= n - i ; j ++ ) 
+				{
+					printf ( " " ) ; 
+				}
+
+				{
+					for ( k = 1 ; k <= 2 * i - 1 ; k ++ ) 
+						if ( k % 2 != 0 ) 
+							printf ( "*" ) ; 
+						else 
+							printf ( " " ) ; 
+				}
+				printf ( "\n" ) ; 
+			}
+			na dekhi naitoi aro onek kisu dekhsiscanf ( "%d %d %d %d" , & a , & b , & c , & d ) ; 
+			if ( ( a + b ) > ( c + d ) ) 
+				e = remain ( a , b ) ; 
+			else 
+				e = remain ( c , d ) ; 
+			while ( ( e < a ) || ( e < b ) || ( e < c ) || ( e < d ) ) 
+				e = remain ( e , a + b + c + d ) ; 
+			printf ( "%d" , e ) ; 
+			return 0 ; 
+		}
+	}
+}

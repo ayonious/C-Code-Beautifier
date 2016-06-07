@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<conio.h>
+
+
+
+
+if ( ) 
+{
+	if ( ) 
+		the quik ; 
+	else if ( ) 
+		asdlkfjaskdjf ; 
+	else 
+		asdfkljsdf ; 
+	if ( ) 
+		asdfsadf ; 
+	if ( asdf ) 
+		asdfasdfadsfdasf ; 
+	else 
+		asdfaskldf ; 
+	if ( ) 
+	{
+		asdfasdf ; 
+		if ( ) 
+			asdasdf ; 
+		if ( ) 
+			sdfasdfasdf ; 
+		else if ( ) 
+		{
+			asfasdasdfadf ; 
+		}
+	}
+}
