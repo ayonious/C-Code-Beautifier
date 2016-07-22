@@ -20,3 +20,9 @@ Now you will get the executables as 'step1' and 'step2'
 ./step2 <tempfile> <output>
 ```
 
+You can try the test cases avilable in 'testcases' folder
+##Example Run
+```
+./step1 13.txt tempfile.txt
+./step2 tempfile.txt output.txt
+```
