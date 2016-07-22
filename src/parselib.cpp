@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
+#include "parselib.h"
 
 void ungets(FILE *f, char *s)
 {
@@ -31,7 +32,7 @@ void conditionHeader(FILE *fin, FILE *fout, int cnt)
 	int sc=0;
 	int p=0;
 	
-	while(fscanf(fin,"%s",&s)==1)
+	while(fscanf(fin,"%s",s)==1)
 	{
 		fprintf(fout,"%s ",s);
 
@@ -59,7 +60,7 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 	
 	int nl=0;
 
-	while(fscanf(fin,"%s",&s)==1)
+	while(fscanf(fin,"%s",s)==1)
 	{
 		
 
@@ -92,7 +93,7 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 		{
 			conditionHeader(fin,fout,2);
 			fprintf(fout,"\n");
-			fscanf(fin,"%s",&s);
+			fscanf(fin,"%s",s);
 			if(s[0]=='{')
 			{//compound statement
 				indent(d,fout);
@@ -114,7 +115,7 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 		{
 			conditionHeader(fin,fout,0);
 			fprintf(fout,"\n");
-			fscanf(fin,"%s",&s);
+			fscanf(fin,"%s",s);
 			if(s[0]=='{') 
 			{//compound statement
 				indent(d,fout);
@@ -137,7 +138,7 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 		{
 			conditionHeader(fin,fout,0);
 			fprintf(fout,"\n");
-			fscanf(fin,"%s",&s);
+			fscanf(fin,"%s",s);
 			if(s[0]=='{')
 			{//compound statement
 				indent(d,fout);
@@ -155,20 +156,20 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 
 
 
-			while(fscanf(fin,"%s",&s)==1) 
+			while(fscanf(fin,"%s",s)==1) 
 			{
 				if(strcmp(s,"else")==0)
 				{
 					indent(d,fout);
 					fprintf(fout,"%s ",s);
-					fscanf(fin,"%s",&s);
+					fscanf(fin,"%s",s);
 
 					if(strcmp(s,"if")==0) 
 					{ //  " else if "
 						fprintf(fout,"%s ",s);
 						conditionHeader(fin,fout,0);
 						fprintf(fout,"\n");
-						fscanf(fin,"%s",&s);
+						fscanf(fin,"%s",s);
 						if(s[0]=='{') 
 						{//compound statement
 							indent(d,fout);
@@ -220,7 +221,7 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 		else if(strcmp(s,"do")==0)
 		{
 			fprintf(fout,"\n");
-			fscanf(fin,"%s",&s);
+			fscanf(fin,"%s",s);
 			if(s[0]=='{')
 			{//compound statement
 				indent(d,fout);
@@ -234,11 +235,11 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 				ungets(fin,s);
 				formatBlock(fin,fout,d+1,1);
 			}
-			fscanf(fin,"%s",&s);//while
+			fscanf(fin,"%s",s);//while
 			indent(d,fout);
 			fprintf(fout,"%s ",s);
 			conditionHeader(fin,fout,0);
-			fscanf(fin,"%s",&s);
+			fscanf(fin,"%s",s);
 			fprintf(fout,"%s\n",s);// ;
 			if(flg)
 				break;
@@ -262,15 +263,18 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 	}
 }
 
-int main(int argc, char* argv[]) 
-{
-	char s[1000];
-	FILE *fin = freopen(argv[1],"r",stdin);
-	FILE *fout = freopen(argv[2],"w",stdout);
+
+Parser::Parser(char *tempfile,char *outputfile) {
+	fin = fopen(tempfile,"r");
+	fout = fopen(outputfile,"w");
 
 	assert(fin!=NULL);
 	assert(fout!=NULL);
-	fscanf(fin,"%s",&s);
+}
+
+void Parser::parse() {
+
+	fscanf(fin,"%s",s);
 	
 	//include parts
 	while(strcmp(s,"#include")==0)
@@ -278,20 +282,18 @@ int main(int argc, char* argv[])
 		fprintf(fout,"%s",s);
 		while(s[0]!='>')
 		{
-			fscanf(fin,"%s",&s);
+			fscanf(fin,"%s",s);
 			fprintf(fout,"%s",s);
 		}
 		fprintf(fout,"\n");
-		fscanf(fin,"%s",&s);
+		fscanf(fin,"%s",s);
 	}
+
 	ungets(fin,s);
 	fprintf(fout,"\n\n\n");
 
 	formatBlock(fin,fout,0,0);
-	
+
 	fclose(fin);
 	fclose(fout);
-
-	return 0;
-	
 }

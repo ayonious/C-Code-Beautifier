@@ -25,3 +25,15 @@ int op(char);
 int isch(char);
 // chek if reserved word is found
 int resfound(char[]);
+
+class Tokenizer {
+private:
+	char now[50],ch,ch1;
+	char store[800000],*p;
+	int n,si;
+	FILE *fin,*fout;
+public:
+	Tokenizer(char *inputfile,char *tempfile);
+	void tokenize();
+};
+
