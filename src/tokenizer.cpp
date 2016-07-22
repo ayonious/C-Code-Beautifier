@@ -1,71 +1,11 @@
 #include<stdio.h>
 #include<string.h>
-			
-char reserve[80][40]={"and","and_eq","asm","auto",
-"bitand","bitor","bool","break","case","catch","char",
-"class","compl","const","const_cast","continue","default",
-"delete","do","double","dynamic_cast","else","enum",
-"explicit","export","extern","false","float","for","friend",
-"goto","if","inline","int","long","mutable","namespace",
-"new","not","not_eq","operator","or","or_eq","private",
-"protected","public","register","reinterpret_cast","return",
-"short","signed","sizeof","static","static_cast","struct",
-"switch","template","this","throw","true","try","typedef",
-"typeid","typename","union","unsigned","using","virtual",
-"void","volatile","wchar_t","while","xor","xor_eq",
-"#include","#define","#ifdef","#ifndef","#endif"};
-			
-	
-
-
-/*
-char opers[44][4]={"+","-","*","/","%","==","!=","<","<=",">",">=","!","&&","||",
-"~","&","|","^","<<",">>","=","+=","-=","*=","/=","%=","&=","|=",
-"^=","<<=",">>=","++","--","&","*","[","]","?",":",".","->","(",")",","};
-*/
-
-char opers[69][4]={ "~","(",")","{","}","[","]",",",".","?",
-"+","-","/","%","=","!","<","<",">",">","!","&","|",
-"&","|","<",">","=","+","-","*","/","%","&","|","^","<",">","+","-","&","*","-",":",
-"==","!=","<=",">=","&&","||","+=","-=","*=","/=","%=","&=","|=",
-"^=","++","--","->","::","//","/*","*/",
-"<<",">>",
-"<<=",">>="};
-
-
-char oone[10][2]={"~","(",")","{","}","[","]",",",".","?"};
-
-
-char none[34][3]={"+","-","/","%","=","!","<","<",">",">","!","&","|",
-"&","|","<",">","=","+","-","*","/","%","&","|","^","<",">","+","-","&","*","-",":"};
-
-
-char otwo[21][3]={"==","!=","<=",">=","&&","||","+=","-=","*=","/=","%=","&=","|=",
-"^=","++","--","->","::","//","/*","*/"};
-		
-
-
-char ntwo[2][3]={"<<",">>"};
-
-
-
-char three[2][4]={"<<=",">>="};		
-
-
-
-
-
-
+#include "tokenlib.h"
 
 char now[50],ch,ch1;
 char store[800000],*p;
 int n=0,si=0;
-			
-			
-	
 
-		
-			
 // to print all the include headres			
 void printinclude()
 {		
@@ -78,8 +18,6 @@ void printinclude()
 	}
 }			
 
-
-
 //to print all the define headrs
 void printdefene()
 {
@@ -91,11 +29,6 @@ void printdefene()
 	
 	}
 }
-
-
-
-
-
 // chek if reserved word is found
 int resfound()
 {
@@ -107,111 +40,6 @@ int resfound()
 	}
 	return ((i==79)?0:1);
 }
-
-
-			
-// the operator that has only one letter
-int isoone(char ch)
-{
-	int i;
-	for(i=0;i<10;i++)
-		if(oone[i][0]==ch)
-			break;
-	if(i==10)		
-		return 0;
-	else		
-		return 1;
-}				
-				
-				
-// the operator that has only one letter
-int isnone(char ch)
-{				
-	int i;		
-	for(i=0;i<34;i++)
-		if(none[i][0]==ch)
-			break;
-	if(i==34)		
-		return 0;
-	else		
-		return 1;
-}				
-				
-				
-// the operator that has only two letter
-int isotwo(char	bla[])
-{				
-	int i;		
-	for(i=0;i<21;i++)
-		if(strcmp(bla,otwo[i])==0)
-			break;
-	if(i==21)		
-		return 0;
-	else		
-		return 1;
-}				
-				
-				
-				
-				
-				
-// the operator that has only two letter
-int isntwo(char	bla[])
-{		
-	int i;
-	for(i=0;i<2;i++)
-		if(strcmp(bla,ntwo[i])==0)
-			break;
-	if(i==2)			
-		return 0;
-	else
-		return 1;
-}
-
-
-
-
-
-				
-// the operator that has only three letter
-int isthree(char bla[])
-{		
-	int i;
-	for(i=0;i<2;i++)
-		if(strcmp(bla,three[i])==0)
-			break;
-	if(i==2)			
-		return 0;
-	else
-		return 1;
-}
-
-
-//chek if the character is an operator
-int op(char ch)
-{
-	int i;
-	for(i=0;i<69;i++)
-		if(opers[i][0]==ch)
-			break;
-	if(i==69)		
-		return 0;
-	else
-		return 1;
-}
-
-
-
-
-// recognizing the chars	
-int isch(char ch)
-{
-	if(((ch>='a')&&(ch<='z'))||((ch>='A')&&(ch<='Z'))||((ch>='0')&&(ch<='9')))
-		return 1;
-	else
-		return 0;
-}	
-
 
 // i have created operator // to make commenting condition																									
 int main(int argc, char* argv[])																
