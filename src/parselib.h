@@ -9,10 +9,10 @@ int isLineBreaker(char *s);
 void conditionHeader(FILE *fin, FILE *fout, int cnt);
 void formatBlock(FILE *fin, FILE *fout, int d, int flg);
 class Parser {
-	private:	
+private:	
 	char s[1000];
 	FILE *fin,*fout;
-	public:
+public:
 	Parser(char *tempfile,char *outputfile);
 	void parse();
 };
