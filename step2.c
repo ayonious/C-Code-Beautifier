@@ -267,13 +267,14 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 FILE *fin;
 //FILE *ftmp;
 FILE *fout;
-void ayontwo(char string1[],char string2[]) 
+
+
+int main(int argc, char* argv[]) 
 {
 	char s[1000];
-
 	//freopen("tmp.txt","w",stdout);
-	fin = freopen(string1,"r",stdin);
-	fout = freopen(string2,"w",stdout);
+	fin = freopen(argv[1],"r",stdin);
+	fout = freopen(argv[2],"w",stdout);
 
 	assert(fin!=NULL);
 	assert(fout!=NULL);
@@ -293,18 +294,11 @@ void ayontwo(char string1[],char string2[])
 	ungets(fin,s);
 	fprintf(fout,"\n\n\n\n");
 
-
-	
-	
 	formatBlock(fin,fout,0,0);
-	
-	
-	
-	
-	
-	
 	
 	fclose(fin);
 	fclose(fout);
+
+	return 0;
 	
 }

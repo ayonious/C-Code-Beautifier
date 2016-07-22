@@ -187,12 +187,6 @@ int isthree(char bla[])
 }
 
 
-
-
-
-
-
-
 //chek if the character is an operator
 int op(char ch)
 {
@@ -219,22 +213,17 @@ int isch(char ch)
 }	
 
 
-// i have created operator // to make commenting condition
-																	
-																				
-																									
-int ayonone(char string1[],char string2[])																
-{	  																					
-	int i,j,n=0;																			
-	//freopen("ayon4.txt","r",stdin);														
- 	//freopen("aout.txt","w",stdout);														
-	freopen(string1,"r",stdin);														
- 	freopen(string2,"w",stdout);
+// i have created operator // to make commenting condition																									
+int main(int argc, char* argv[])																
+{
+	int i,j,n=0;
+
+	freopen(argv[1],"r",stdin);														
+ 	freopen(argv[2],"w",stdout);
 	while((ch=getchar())!=EOF)												
 	{		
-		
 		prev:
-		
+
 		if(op(ch))
 		{
 			n=0;
@@ -354,8 +343,7 @@ int ayonone(char string1[],char string2[])
 			now[n++]=ch;
 			now[n]='\0';
 		}
-		else if(ch=='"')
-		{
+		else if(ch=='"') {
 			//checking if it is in a prinf, scanf, string or means just a symbol
 			// here is a bug left by ayon(me :D )  which is if there is a single " then this code will not work
 			
@@ -365,8 +353,7 @@ int ayonone(char string1[],char string2[])
 			n=0;
 			now[n]='\0';
 		}
-		else if(ch=='\'')
-		{
+		else if(ch=='\'') {
 			// here is a bug left by ayon(me :D )  which is if there is a single ' then this code will not work
 			
 			store[si++]=ch;
@@ -376,35 +363,26 @@ int ayonone(char string1[],char string2[])
 			now[n]='\0';
 		}
 		// all of these will indicate the cheking of reserved words
-		else if((ch==' ')||(ch=='\t')||(ch=='\n'))
-		{
-			if(resfound())
-			{		
+		else if((ch==' ')||(ch=='\t')||(ch=='\n')) {
+			if(resfound()) {		
 					store[si++]=' ';
 					n=0;
 					now[n]='\0';
 			}
-			else if((store[si-1]!=' ')&&(ch==' '))
-			{
+			else if((store[si-1]!=' ')&&(ch==' ')) {
 				store[si++]=' ';
 			}
 			continue;
 		}
 		else
 			n=0;
-	
-	
-		
+
 		store[si++]=ch;
 	}
-
-
 	
-	for(i=0;i<si;i++)
-	{
+	for(i=0;i<si;i++) {
 		printf("%c",store[i]);
 	}
-	
 
 	return 0;
 					

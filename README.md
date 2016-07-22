@@ -1,12 +1,22 @@
-# Program that helps to align/beautify C/C++ code
-
-#running instructions:
-1. make sure you have GLUT32.DLL in environment variable path.
-2. run the main.exe file.
-3. open the file you want to beautify.
-4. choose "beautify".
-5. then write the name of the file where the beautified code will be saved.
-6. now open that file to see the beautified code.
+# Program that helps to align/beautify C/C++ code  
 
 
-**This project is Tested only in windows.
+##build instructions: (optional step for those who wants some action building executables themselves :) you can skip this step and directly move to 'running instructions' stage
+```
+g++ step1.c -o step1
+g++ step2.c -o step2
+```
+Now you will get the executables as 'step1' and 'step2'  
+
+##running instructions:
+
+###step1: remove unnecessary tabs and spaces
+```
+./step1 <inpuetfile> <tempfile>
+```
+
+###step2: final parsing
+```
+./step2 <tempfile> <output>
+```
+
