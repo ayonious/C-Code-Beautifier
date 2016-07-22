@@ -6,7 +6,7 @@
 cd src
 g++ Main.cpp parselib.cpp tokenlib.cpp -o c-code-beautifier
 ```
-Now you will get the executables as 'tokenizer' and 'parser'  
+Now you will get the executables as 'c-code-beautifier'
 
 ##Running instructions:
 
