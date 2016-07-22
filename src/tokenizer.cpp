@@ -1,55 +1,25 @@
 #include<stdio.h>
 #include<string.h>
+#include<assert.h>
 #include "tokenlib.h"
 
-char now[50],ch,ch1;
-char store[800000],*p;
-int n=0,si=0;
-
-// to print all the include headres			
-void printinclude()
-{		
-	int i;
-	for(i=1;i<=4;i++)
-	{
-		printf("%s",now);
-		p+=strlen(now);while(*p==' ')p++;
-	
-	}
-}			
-
-//to print all the define headrs
-void printdefene()
-{
-	int i;
-	for(i=1;i<=3;i++)
-	{
-		printf("%s",now);
-		p+=strlen(now);while(*p==' ')p++;
-	
-	}
-}
-// chek if reserved word is found
-int resfound()
-{
-	int i;
-	for(i=0;i<79;i++)
-	{
-		if(strcmp(reserve[i],now)==0)
-			break;
-	}
-	return ((i==79)?0:1);
-}
 
 // i have created operator // to make commenting condition																									
 int main(int argc, char* argv[])																
 {
-	int i,j,n=0;
+	int i,j;
+	char now[50],ch,ch1;
+	char store[800000],*p;
+	int n=0,si=0;
 
-	freopen(argv[1],"r",stdin);														
- 	freopen(argv[2],"w",stdout);
-	while((ch=getchar())!=EOF)												
-	{		
+	FILE *fin = freopen(argv[1],"r",stdin);
+	FILE *fout = freopen(argv[2],"w",stdout);
+
+	assert(fin!=NULL);
+	assert(fout!=NULL);
+
+	while((ch=fgetc(fin))!=EOF)												
+	{
 		prev:
 
 		if(op(ch))
@@ -63,8 +33,7 @@ int main(int argc, char* argv[])
 			store[si++]=' ';
 			store[si++]=ch;
 			//store[si++]=' ';
-			
-			
+
 			if(isoone(ch))
 			{
 				store[si++]=' ';
@@ -74,7 +43,7 @@ int main(int argc, char* argv[])
 			}
 			else if(isnone(ch))
 			{
-				ch=getchar();
+				ch=fgetc(fin);
 				now[n++]=ch;
 				now[n]='\0';
 				if(isotwo(now))
@@ -88,7 +57,7 @@ int main(int argc, char* argv[])
 						store[si-1]='/';
 						while(ch!='\n')
 						{
-							ch=getchar();
+							ch=fgetc(fin);
 							store[si++]=ch;
 						}
 						store[si++]=ch;
@@ -98,14 +67,15 @@ int main(int argc, char* argv[])
 						store[si-3]='\n';
 						store[si-2]='/';
 						store[si-1]='*';
-						scanf("%s",now);
+						//scanf("%s",now);
+						fscanf(fin,"%s",now);
 						while(strcmp(now,"*/")!=0)
 						{
 							store[si++]=' ';
 							n=strlen(now);
 							for(j=0;j<n;j++)
 								store[si++]=now[j];
-							scanf("%s",now);
+							fscanf(fin,"%s",now);
 						}
 						store[si++]=' ';
 						store[si++]='*';
@@ -119,7 +89,7 @@ int main(int argc, char* argv[])
 				else if(isntwo(now))
 				{
 					store[si++]=ch;
-					ch=getchar();
+					ch=fgetc(fin);
 					now[n++]=ch;
 					now[n]='\0';
 					if(isthree(now))
@@ -155,7 +125,7 @@ int main(int argc, char* argv[])
 			now[n]='\0';
 			store[si++]=' ';
 			store[si++]=ch;
-			store[si++]=' ';   //shaon er kotai dilm kn j dilm
+			store[si++]=' ';
 			continue;
 		}
 		else if(ch=='(')
@@ -176,7 +146,7 @@ int main(int argc, char* argv[])
 			// here is a bug left by ayon(me :D )  which is if there is a single " then this code will not work
 			
 			store[si++]=ch;
-			while((ch=getchar())!='"')
+			while((ch=fgetc(fin))!='"')
 				store[si++]=ch;
 			n=0;
 			now[n]='\0';
@@ -185,14 +155,14 @@ int main(int argc, char* argv[])
 			// here is a bug left by ayon(me :D )  which is if there is a single ' then this code will not work
 			
 			store[si++]=ch;
-			while((ch=getchar())!='\'')
+			while((ch=fgetc(fin))!='\'')
 				store[si++]=ch;
 			n=0;
 			now[n]='\0';
 		}
 		// all of these will indicate the cheking of reserved words
 		else if((ch==' ')||(ch=='\t')||(ch=='\n')) {
-			if(resfound()) {		
+			if(resfound(now)) {		
 					store[si++]=' ';
 					n=0;
 					now[n]='\0';
@@ -209,7 +179,7 @@ int main(int argc, char* argv[])
 	}
 	
 	for(i=0;i<si;i++) {
-		printf("%c",store[i]);
+		fprintf(fout,"%c",store[i]);
 	}
 
 	return 0;

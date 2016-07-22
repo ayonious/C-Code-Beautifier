@@ -76,3 +76,10 @@ int op(char ch)
 int isch(char ch) {
 	return (((ch>='a')&&(ch<='z'))||((ch>='A')&&(ch<='Z'))||((ch>='0')&&(ch<='9')));
 }
+// chek if reserved word is found
+int resfound(char now[])
+{
+	int i;
+	for(i=0;i<79;i++) if(strcmp(reserve[i],now)==0) break;
+	return i!=79;
+}

@@ -262,23 +262,17 @@ void formatBlock(FILE *fin, FILE *fout, int d, int flg)
 	}
 }
 
-
-
-FILE *fin;
-//FILE *ftmp;
-FILE *fout;
-
-
 int main(int argc, char* argv[]) 
 {
 	char s[1000];
-	//freopen("tmp.txt","w",stdout);
-	fin = freopen(argv[1],"r",stdin);
-	fout = freopen(argv[2],"w",stdout);
+	FILE *fin = freopen(argv[1],"r",stdin);
+	FILE *fout = freopen(argv[2],"w",stdout);
 
 	assert(fin!=NULL);
 	assert(fout!=NULL);
 	fscanf(fin,"%s",&s);
+	
+	//include parts
 	while(strcmp(s,"#include")==0)
 	{
 		fprintf(fout,"%s",s);
@@ -289,10 +283,9 @@ int main(int argc, char* argv[])
 		}
 		fprintf(fout,"\n");
 		fscanf(fin,"%s",&s);
-		
 	}
 	ungets(fin,s);
-	fprintf(fout,"\n\n\n\n");
+	fprintf(fout,"\n\n\n");
 
 	formatBlock(fin,fout,0,0);
 	

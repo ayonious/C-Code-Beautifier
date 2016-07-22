@@ -22,4 +22,6 @@ int isthree(char []);
 //chek if the character is an operator
 int op(char);
 // recognizing the chars	
-int isch(char ch);
+int isch(char);
+// chek if reserved word is found
+int resfound(char[]);
