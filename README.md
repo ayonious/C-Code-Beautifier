@@ -1,4 +1,4 @@
-#beautify/format your C/C++ code  
+#Beautify/format your C/C++ code  
 
 
 ##Build instructions: (optional step for those who wants some action building executables themselves :) you can skip this step and directly move to 'running instructions' stage
