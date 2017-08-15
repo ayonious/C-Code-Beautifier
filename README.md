@@ -1,7 +1,9 @@
 # Beautify/format your C/C++ code  
 
 
-## Build instructions: (optional step for those who wants some action building executables themselves :) you can skip this step and directly move to 'running instructions' stage
+## Build instructions: 
+
+This is an optional step for those who wants some action building executables themselves :) you can skip this step and directly move to 'running instructions' stage
 ```
 cd src
 g++ Main.cpp parselib.cpp tokenlib.cpp -o c-code-beautifier
@@ -21,3 +23,31 @@ Find the beautiful output in <outputfile>. You can try the test cases avilable i
 ./c-code-beautifier testcases/13.txt pretty.txt
 #output is ready in file pretty.txt
 ```
+
+
+## Sample Input
+```
+#include<stdio.h> #include<conio.h>  if ( ) {
+	    if ( ) the quik ; 
+    else if ( ) 
+		asdlkfjaskdjf ; 
+else 
+		asdfkljsdf ; }
+```
+
+## Sample output
+
+```
+#include<stdio.h>
+#include<conio.h>
+if ( ) 
+{
+	if ( ) 
+		the quik ; 
+	else if ( ) 
+		asdlkfjaskdjf ; 
+	else 
+		asdfkljsdf ; 
+}
+```
+

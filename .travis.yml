@@ -1,0 +1,12 @@
+sudo: required
+
+# Enable C++ support
+language: cpp
+
+# Compiler selection
+compiler:
+  - gcc
+
+# Build steps
+script:
+  - g++ src/Main.cpp src/parselib.cpp src/tokenlib.cpp -o C-code-beautifier
