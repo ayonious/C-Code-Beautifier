@@ -16,7 +16,7 @@ Now you will get the executables as 'c-code-beautifier'
 ```
 ./c-code-beautifier <inputfile> <outputfile>
 ```
-
+ 
 Find the beautiful output in <outputfile>. You can try the test cases avilable in 'testcases' folder.
 
 ## Example Run
