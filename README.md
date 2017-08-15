@@ -1,5 +1,5 @@
 # Beautify/format your C/C++ code  
-[![Build Status](https://travis-ci.org/ayonious/c-code-beautifier.svg?branch=master)](https://travis-ci.org/ayonious/c-code-beautifier)
+[![Build Status](https://travis-ci.org/ayonious/C-Code-Beautifier.svg?branch=master)](https://travis-ci.org/ayonious/C-Code-Beautifier)
 
 
 ## Build instructions: 
