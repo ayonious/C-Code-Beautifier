@@ -6,6 +6,7 @@ script:
 - g++ -c src/*.cpp
 before_deploy:
 - g++ src/Main.cpp src/parselib.cpp src/tokenlib.cpp -o C-Code-Beautifier
+- chmod +x C-Code-Beautifier
 # install travis cli
 # travis setup releases
 deploy:

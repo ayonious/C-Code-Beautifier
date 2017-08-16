@@ -4,27 +4,23 @@
 
 ## Build instructions: 
 
-This is an optional step for those who wants some action building executables themselves :) you can skip this step and directly move to 'running instructions' stage
+To build the binary from source:
 ```
-cd src
-g++ Main.cpp parselib.cpp tokenlib.cpp -o c-code-beautifier
+g++ src/Main.cpp src/parselib.cpp src/tokenlib.cpp -o C-Code-Beautifier
 ```
-Now you will get the executables as 'c-code-beautifier'
 
+To download directly:
+```
+curl -O "https://github.com/ayonious/C-Code-Beautifier/releases/download/v0.6/C-Code-Beautifier"
+```
+
+Now you will get the executables as 'C-Code-Beautifier'
 ## Running instructions:
 
 ```
-./c-code-beautifier <inputfile> <outputfile>
+./C-Code-Beautifier <inputfile_to_beformatted> <formatted_outputfile>
 ```
-
 Find the beautiful output in <outputfile>. You can try the test cases avilable in 'testcases' folder.
-
-## Example Run
-```
-./c-code-beautifier testcases/13.txt pretty.txt
-#output is ready in file pretty.txt
-```
-
 
 ## Sample Input
 ```
