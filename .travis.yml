@@ -15,3 +15,4 @@ deploy:
   file: C-Code-Beautifier
   on:
     repo: ayonious/C-Code-Beautifier
+    tags: true
