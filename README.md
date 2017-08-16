@@ -11,7 +11,7 @@ g++ src/Main.cpp src/parselib.cpp src/tokenlib.cpp -o C-Code-Beautifier
 
 To download directly:
 ```
-curl -O "https://github.com/ayonious/C-Code-Beautifier/releases/download/v0.6/C-Code-Beautifier"
+curl -O "https://github.com/ayonious/C-Code-Beautifier/releases/download/v0.7/C-Code-Beautifier"
 ```
 
 Now you will get the executables as 'C-Code-Beautifier'
