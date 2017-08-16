@@ -1,25 +1,17 @@
 sudo: required
-
-# Enable C++ support
 language: cpp
-
-# Compiler selection
 compiler:
-  - gcc
-
-# Build steps
+- gcc
 script:
-  - g++ -c src/*.cpp
-
+- g++ -c src/*.cpp
 before_deploy:
-  - g++ src/Main.cpp src/parselib.cpp src/tokenlib.cpp -o C-code-beautifier
-
+- g++ src/Main.cpp src/parselib.cpp src/tokenlib.cpp -o C-Code-Beautifier
+# install travis cli
+# travis setup releases
 deploy:
   provider: releases
   api_key:
-    secure: "0NkLHWTOVWayx/uScp5qiAa2xqeDf4wikmvgjVsG9JEV6zFxHBjM0tmOwXn7FpLpsfP1mJjCfoZX1L+ZyUuigv39KYbqddcYjGZ2hefLL65FL2lRNUSu/lFxBvs24W+TCGpR6ypQ1uDk+2gyVmup0wtfEIF1A7SePECsYyOS4iC7gVPf9bCnyHdoRPcQxvF4NTVlMnX1ND7NrYk0T5PYip87VoNAs9OR9VVFw5nufKll31DCz1UntXHPdCB7wkDiGEJwNE9fQV4dqdpqbYmvWfk8Au0Aa6oSDrtYwAhYdbfXDVa1aRwIXPPBktbHq9DIVq5xPyVuqeGi1GcHbu9TUhvSmpLM4nUm9QBPzRE+8b6QtgXwdPveiT/TKCCKIXBI88WRWfNp0pZcUyQfR71BZUdYistSzv4DPYxVUJY2cxVlYck9o2Axxd4vb9pDMmg2MsnH82l6arSXyYTunL45T6CgJCEO0NuP+k9TECduEnD3awcAT7Uj7iH9ZfHXxHeYwmDZ1z11dPyzFGe5PQNc6seuECogtF5hBwffXfwomHuVry8UmBj2/IWO2MuxA/NhingHY0HE2AbunVX5siXElC8h7uoNsyGJRLBGBP3Sio4nKknwBNAlDKfRtxFSjKXG5bKyTrnCEp+s1pdN9Rak+U+zCcWp8qBxH4cu87u1Fbc="
-  file: $TRAVIS_BUILD_DIR/C-Code-Beautifier
-  skip_cleanup: true
+    secure: v8of+yZJMZnxOHPaZv8PHPdmpHq4VBzx+KISEvjuvZA25fA3I5VyInOqaTJbWI148AxvbPzij1aQ0AZQElgP/7VPHvTarHRgj2AUvXIpZ+cZ46I0OPyrN3nlnyQXHj7gVyZ9yzgVh4VYeXEs4JBiH32vpEt7u0bOeMbVeEhpBDhUb5byiGQKhj3xH4aJsd3iOe0ebTp48BaViScH1gN08p+ohCh8iixGndmHkgJ3wYN+W4rD+vZjaLAtDgjlQqZoMpfyv4zRlu01SiPEMKmfMAw5pu7QqpE6fW+5Wtm5hUH/15asGmYUfY0uDmIGOs6R29TZzAvaEYHqmfPya+hQiPn+ad+SAY5gr8ESkmIJ2vZK7thFRsDVqNifXj0q2AjJeO6FRb+g4/lz77bRFZO4sjfg9jw1SMv6tsvWTSGJIrxcv0I3cyk//TtEyssbl62gSt+nbmg/dcRA/O1b5LncyQ7E8ldfQrE8Bqyr5ctI9tEQUlUeKQ6EogpG0QFvhNOPGR4DDt0q+PBssA14Z+GDux4PYTWXHrYo52ANzbuqrGQYPm2M3MGN9tpnUr3Nuujt755sPExLln5cosmHfCPTvw7eKS5nTBRQrH7BZQuuqRZv4kmwbmpp3h3qtrRHkibFw0rz4UT/gO7W0Vs2YNmuApi1eJ3JEEhdqYuJ61DDJcs=
+  file: C-Code-Beautifier
   on:
     repo: ayonious/C-Code-Beautifier
-    tags: true
