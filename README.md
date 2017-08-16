@@ -4,21 +4,19 @@
 
 ## Build instructions: 
 
-To build the binary from source:
-```
-g++ src/Main.cpp src/parselib.cpp src/tokenlib.cpp -o C-Code-Beautifier
-```
-
-To download directly:
-Make sure you put the proper latest version instead of v0.7
+You can download the binary directly. Make sure you put the proper latest version instead of v0.7
 ```
 curl -O "https://github.com/ayonious/C-Code-Beautifier/releases/download/v0.7/C-Code-Beautifier"
 chmod +x C-Code-Beautifier
 ```
 
+Or you can build it from source:
+```
+g++ src/Main.cpp src/parselib.cpp src/tokenlib.cpp -o C-Code-Beautifier
+```
+
 Now you will get the executables as 'C-Code-Beautifier'
 ## Running instructions:
-
 ```
 ./C-Code-Beautifier <inputfile_to_beformatted> <formatted_outputfile>
 ```
