@@ -13,6 +13,7 @@ deploy:
   api_key:
     secure: v8of+yZJMZnxOHPaZv8PHPdmpHq4VBzx+KISEvjuvZA25fA3I5VyInOqaTJbWI148AxvbPzij1aQ0AZQElgP/7VPHvTarHRgj2AUvXIpZ+cZ46I0OPyrN3nlnyQXHj7gVyZ9yzgVh4VYeXEs4JBiH32vpEt7u0bOeMbVeEhpBDhUb5byiGQKhj3xH4aJsd3iOe0ebTp48BaViScH1gN08p+ohCh8iixGndmHkgJ3wYN+W4rD+vZjaLAtDgjlQqZoMpfyv4zRlu01SiPEMKmfMAw5pu7QqpE6fW+5Wtm5hUH/15asGmYUfY0uDmIGOs6R29TZzAvaEYHqmfPya+hQiPn+ad+SAY5gr8ESkmIJ2vZK7thFRsDVqNifXj0q2AjJeO6FRb+g4/lz77bRFZO4sjfg9jw1SMv6tsvWTSGJIrxcv0I3cyk//TtEyssbl62gSt+nbmg/dcRA/O1b5LncyQ7E8ldfQrE8Bqyr5ctI9tEQUlUeKQ6EogpG0QFvhNOPGR4DDt0q+PBssA14Z+GDux4PYTWXHrYo52ANzbuqrGQYPm2M3MGN9tpnUr3Nuujt755sPExLln5cosmHfCPTvw7eKS5nTBRQrH7BZQuuqRZv4kmwbmpp3h3qtrRHkibFw0rz4UT/gO7W0Vs2YNmuApi1eJ3JEEhdqYuJ61DDJcs=
   file: $TRAVIS_BUILD_DIR/C-Code-Beautifier
+  skip_cleanup: true
   on:
     repo: ayonious/C-Code-Beautifier
     tags: true
